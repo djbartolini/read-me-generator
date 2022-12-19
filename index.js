@@ -44,10 +44,10 @@ function writeToFile(fileName, data) {
 function init() {
     inquirer
         .prompt(questions)
-        .then((response) => {
-        fs.appendFile('info.txt', `${JSON.stringify(response)}\n`, (err) =>
-            err ? console.log('Error') : console.log('Data saved! Generating README!'))}
-    )
+        .then((responses) => {
+            writeToFile(responses);
+            console.log('Data saved! Generating README!');
+        })
 }
 
 // Function call to initialize app
