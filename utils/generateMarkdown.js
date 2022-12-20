@@ -49,9 +49,13 @@ function renderLicenseSection(license) {
   }
 }
 
-function renderSupportSection(username) {
-  let supportContent = `If you encounter problems with this README generator, please reach out to me on GitHub at: https://github.com/${username}.`;
-  if (username) return supportContent;
+function renderSupportSection(username, email) {
+  let supportContent = `If you encounter problems with this README generator, please reach out to me on GitHub at: https://github.com/${username}, or email me at ${email}`;
+  if (username) {
+    return supportContent;
+  } else {
+    return 'Unavailable at this time.'
+  }
 }
 
 // TODO: Create a function to generate markdown for README

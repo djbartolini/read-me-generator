@@ -37,6 +37,11 @@ const questions = [{
     type: 'input',
     message: 'Please enter for GitHub username:',
     name: 'username',
+},
+{
+    type: 'input',
+    message: 'Please enter your email address:',
+    name: 'email'
 }]
 
 // TODO: Create a function to write README file
@@ -44,7 +49,7 @@ function writeToFile(responses) {
     let getLicenseBadge = generateMarkdown.renderLicenseBadge(responses.license);
     let getLicenseLink = generateMarkdown.renderLicenseLink(responses.license);
     let getLicenseContent = generateMarkdown.renderLicenseSection(responses.license);
-    let getUsername = generateMarkdown.renderSupportSection(responses.username);
+    let getUsername = generateMarkdown.renderSupportSection(responses.username, responses.email);
 
     let data = {
         ...responses,
