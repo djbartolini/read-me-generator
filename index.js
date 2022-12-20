@@ -21,7 +21,7 @@ const questions = [{
     type: 'list',
     message: 'License: Which license are you using?',
     name: 'license',
-    choices: ['Apache', 'MIT', 'Creative Commons', 'Eclipse Public License'],
+    choices: ['Apache', 'MIT', 'Creative Commons', 'Eclipse Public License', 'None'],
 },
 {
     type: 'input',
@@ -32,17 +32,26 @@ const questions = [{
     type: 'input',
     message: 'Contributing: Who would you like to give credit to?',
     name: 'contributing',
+},
+{
+    type: 'input',
+    message: 'Please enter for GitHub username:',
+    name: 'username',
 }]
 
 // TODO: Create a function to write README file
 function writeToFile(responses) {
     let getLicenseBadge = generateMarkdown.renderLicenseBadge(responses.license);
     let getLicenseLink = generateMarkdown.renderLicenseLink(responses.license);
+    let getLicenseContent = generateMarkdown.renderLicenseSection(responses.license);
+    let getUsername = generateMarkdown.renderSupportSection(responses.username);
 
     let data = {
         ...responses,
         getLicenseBadge,
-        getLicenseLink
+        getLicenseLink,
+        getLicenseContent,
+        getUsername
     };
     
     fs.writeFileSync('generated-README.md', generateMarkdown.generateMarkdown(data));
