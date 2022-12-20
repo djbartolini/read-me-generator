@@ -38,8 +38,14 @@ const questions = [{
 function writeToFile(responses) {
     let getLicenseBadge = generateMarkdown.renderLicenseBadge(responses.license);
     let getLicenseLink = generateMarkdown.renderLicenseLink(responses.license);
+
+    let data = {
+        ...responses,
+        getLicenseBadge,
+        getLicenseLink
+    };
     
-    fs.writeFileSync('generated-README.md', generateMarkdown.generateMarkdown(responses));
+    fs.writeFileSync('generated-README.md', generateMarkdown.generateMarkdown(data));
 }
 
 // TODO: Create a function to initialize app
