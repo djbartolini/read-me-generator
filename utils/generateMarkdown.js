@@ -50,7 +50,7 @@ function renderSupportSection(username) {
 function generateMarkdown(data) {
   return `# ${data.title}
 
-  [${data.getLicenseBadge}](${data.getLicenseLink})
+  ${data.getLicenseBadge}${data.getLicenseLink}
 
   ## Desciption
   ${data.description}
@@ -79,4 +79,4 @@ function generateMarkdown(data) {
 `;
 }
 
-module.exports = generateMarkdown;
+module.exports = {generateMarkdown, renderLicenseBadge, renderLicenseLink, renderLicenseSection, renderSupportSection};
