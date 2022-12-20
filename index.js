@@ -3,17 +3,17 @@ const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
 
 const questions = [{
-    type: 'editor',
+    type: 'input',
     message: 'Title: What is your project\'s title?',
     name: 'title',
 },
 {
-    type: 'editor',
+    type: 'input',
     message: 'Description: Write a brief description about your project:',
     name: 'description',
 },
 {
-    type: 'editor',
+    type: 'input',
     message: 'Installation: How do you run your project?',
     name: 'installation',
 },
