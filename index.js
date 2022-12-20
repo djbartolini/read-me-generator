@@ -1,5 +1,6 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const generateMarkdown = require('./utils/generateMarkdown');
 
 const questions = [{
     type: 'editor',
@@ -34,10 +35,11 @@ const questions = [{
 }]
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-
-        
+function writeToFile(responses) {
+    let getLicenseBadge = generateMarkdown.renderLicenseBadge(responses.license);
+    let getLicenseLink = generateMarkdown.renderLicenseLink(responses.license);
     
+    fs.writeFileSync('generated-README.md', generateMarkdown.generateMarkdown(responses));
 }
 
 // TODO: Create a function to initialize app
