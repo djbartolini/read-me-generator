@@ -21,7 +21,7 @@ const questions = [{
     type: 'list',
     message: 'License: Which license are you using?',
     name: 'license',
-    choices: ['Apache', 'MIT', 'Creative Commons', 'Eclipse Public License', 'None'],
+    choices: ['Apache 2.0', 'MIT', 'Creative Commons', 'Eclipse Public License', 'GNU GPL v3', 'None'],
 },
 {
     type: 'input',
